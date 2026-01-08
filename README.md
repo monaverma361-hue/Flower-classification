@@ -1,44 +1,54 @@
-# Flower Classification (ResNet50 fine-tune)
+# Flower Classification (ResNet50 Fine-Tune)
 
+This repository contains code to fine-tune a ResNet50 model for classifying flowers into 50 categories. It demonstrates **transfer learning** with head training and backbone finetuning, model inference, and visualizations through a **Jupyter notebook interface**.
 
-This repository contains code to fine-tune a ResNet50 model for classifying flowers into 50 categories. It demonstrates transfer learning, model inference, and visualizations through a Jupyter notebook interface.
+---
 
-⸻
-
-Project Overview
+## Project Overview
 
 The goal of this project is to:
-- Fine-tune a pretrained ResNet50 on a flower dataset.
-- Predict the class of any flower image.
-- Provide a visual interface to view predictions and top probabilities.
+
+- Fine-tune a pretrained ResNet50 on a flower dataset (head-only training + backbone finetuning).  
+- Predict the class of any flower image with top-K probabilities.  
+- Provide a **visual interface** for interactive prediction via Jupyter Notebook.  
 - Showcase results for portfolio or client review (e.g., Upwork link).
 
-⸻
+---
 
-Repository Contents
+## Repository Contents
 
-| File / Folder                             | Description                                                        |
-|-------------------------------------------|--------------------------------------------------------------------|
-| train_finetune.py                         | Training script (head training + fine-tuning)                      |
-| finetune_predict.py                       | Prediction script for single images                                |
-| Flower Classification Interface.ipynb     | Jupyter notebook showing example predictions with images & probs   |
-| cat_to_name.json                          | Mapping from class id to flower name (used for visualization)      |
-| flower_data/                              | Original dataset (train/valid/test). Not included in this repo     |
-| checkpoint_resnet_head.pth                | Head-only trained model checkpoint. Not included                   |
-| checkpoint_resnet_finetune.pth            | Fully fine-tuned model checkpoint. Not included                    |
-| output/                                   | Contains training plots and example prediction images (ignored)    |
+| File / Folder | Description |
+|---------------|-------------|
+| `train_finetune.py` | Training script (head training + backbone finetuning) |
+| `finetune_predict.py` | Prediction script for single images |
+| `Flower Classification Interface.ipynb` | Jupyter notebook showing example predictions with images & top-K probabilities |
+| `cat_to_name.json` | Mapping from class id to flower name (used for visualization) |
+| `flower_data/` | Original dataset (train/valid/test). Not included in this repo |
+| `checkpoint_resnet_head.pth` | Head-only trained model checkpoint. Not included |
+| `checkpoint_resnet_finetune.pth` | Fully fine-tuned model checkpoint. Not included |
+| `output/` | Contains training plots and example prediction images (ignored in Git to reduce repo size) |
 
-⸻
+---
 
-Environment & Dependencies
+## Environment & Dependencies
 
 Tested environment:
-- Python 3.8–3.11
-- PyTorch 1.12+
-- Torchvision 0.13+
-- Matplotlib
-- NumPy
-- Pillow
+
+- Python 3.8–3.11  
+- PyTorch 1.12+  
+- Torchvision 0.13+  
+- Matplotlib  
+- NumPy  
+- Pillow  
+
+### Virtual Environment Setup
+
+**Linux / macOS (bash/zsh):**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install torch torchvision matplotlib numpy pillow
 
 Virtual environment (recommended)
 
