@@ -116,6 +116,34 @@ Results display (view-only)
 - Add annotated images and `output/predictions.json` to `output/gallery/` or create `results/index.html` for GitHub Pages.
 - If files are large, host externally and link from the README.
 
+- 
+⸻
+
+📊 Model Evaluation & Error Analysis
+
+Although the model achieves ~94% validation accuracy, deeper analysis reveals important limitations:
+	•	Confusion matrix analysis shows strong class-level confusion between visually similar flowers (e.g., Dahlia vs Zinnia)
+	•	Many classes contain images with:
+	•	similar colors
+	•	similar viewpoints
+	•	limited background diversity
+
+This leads to shortcut learning, where the model relies on superficial visual cues rather than robust features.
+
+Key takeaway:
+
+Data diversity and class balance are often more important than increasing model complexity.
+
+⸻
+
+⚠️ Limitations & Future Improvements
+	•	Dataset exhibits visual bias, limiting real-world generalization
+	•	Possible improvements:
+	•	stronger data augmentation
+	•	more diverse samples per class
+	•	class-balanced sampling
+	•	This project intentionally prioritizes model reasoning and analysis over dataset expansion
+
 About Git & large files
 - Large items (dataset, outputs, checkpoints) are excluded from git in this repo. Use Git LFS to track `*.pth` if you want to version checkpoints:
 ```bash
